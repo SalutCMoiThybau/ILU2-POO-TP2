@@ -40,6 +40,14 @@ public class BoundaryEmmenager {
 	}
 
 	private void emmenagerDruide(String nomVisiteur) {
-		//TODO a completer
+		StringBuilder question = new StringBuilder();
+		question.append("Bienvenu druide " + nomVisiteur + "\n");
+		question.append("Quelle est votre force ?\n");
+		int force = Clavier.entrerEntier(question.toString());
+		do {
+			int effetPotionMin = Clavier.entrerEntier("Quelle est la force de potion la plus faible que vous produisez ?\n");
+			
+			
+		} while (effetPotionMin<effetPotionMax);
 	}
 }
