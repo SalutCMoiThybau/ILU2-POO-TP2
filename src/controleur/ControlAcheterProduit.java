@@ -15,5 +15,11 @@ public class ControlAcheterProduit {
 		this.controlTrouverEtalVendeur = controlTrouverEtalVendeur;
 	}
 
-	//TODO a completer
+	public boolean isHabitant(String nom) {
+		return village.trouverHabitant(nom) != null;
+	}
+	
+	public boolean isProduitEtal(String produit) {
+		return controlTrouverEtalVendeur.trouverEtalVendeur(produit) != null;
+	}
 }
