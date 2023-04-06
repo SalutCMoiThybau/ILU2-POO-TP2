@@ -13,13 +13,13 @@ public class BoundaryPrendreEtal {
 	}
 
 	public void prendreEtal(String nomVendeur) {
-		Boolean nomVendeurConnu = controlPrendreEtal.verifierIdentite(nomVendeur);
-		if (!nomVendeurConnu) System.out.println("Je suis désolé " + nomVendeur + " mais il faut être un habitant de notre village pour commencer ici.\n");
+		boolean nomVendeurConnu = controlPrendreEtal.verifierIdentite(nomVendeur);
+		if (!nomVendeurConnu) System.out.println("Je suis dï¿½solï¿½ " + nomVendeur + " mais il faut ï¿½tre un habitant de notre village pour commencer ici.\n");
 		else {
-			System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un étal.\n");
+			System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un ï¿½tal.\n");
 			
-			Boolean etalDisponible = controlPrendreEtal.resteEtals();
-			if (!etalDisponible)System.out.println("Désolé " + nomVendeur + ", je n'ai plus d'étal qui ne soit pas déjà occupé.\n");
+			boolean etalDisponible = controlPrendreEtal.resteEtals();
+			if (!etalDisponible) System.out.println("Dï¿½solï¿½ " + nomVendeur + ", je n'ai plus d'ï¿½tal qui ne soit pas dï¿½jï¿½ occupï¿½.\n");
 			else {
 				installerVendeur(nomVendeur);
 			}
@@ -28,8 +28,13 @@ public class BoundaryPrendreEtal {
 
 	private void installerVendeur(String nomVendeur) {
 		StringBuilder chaine =new StringBuilder();
-		chaine.append("C'est parfait, il me reste un étal pour vous !\n");
+		chaine.append("C'est parfait, il me reste un ï¿½tal pour vous !\n");
 		chaine.append("Il me faudrait quelques renseignements :\n");
-		//TODO
+		chaine.append("Quel produit souhaitez-vous vendre ?");
+		System.out.println(chaine.toString());
+		String produit = scan.next();
+		int nbProduit = Clavier.entrerEntier("Combien souhaitez-vous en vendre ?");
+		int numeroEtal = controlPrendreEtal.prendreEtal(nomVendeur, produit, nbProduit);
+		if (numeroEtal!=-1) System.out.println("Le vendeur " + nomVendeur + " s'est installÃ© Ã  l'Ã©tal nÂ°" + (numeroEtal+1) + ".\n");
 	}
 }
